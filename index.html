@@ -4,20 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestore Finanze</title>
+    <title>Gestore Spese Personali</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <h1>💰 Gestore Spese Personali</h1>
 
-    <section id="sezione-inserimento" class="input-container">
-        <input type="text" id="descrizione" placeholder="Descrizione spesa">
+        <div class="input-section">
+            <div class="form-group">
+                <label for="description">Descrizione Spesa</label>
+                <input type="text" id="description" placeholder="Es: Spesa al supermercato">
+            </div>
 
-        <input type="number" id="importo" placeholder="Importo" step="0.01" min="0">
+            <div class="form-group">
+                <label for="amount">Importo (€)</label>
+                <input type="number" id="amount" placeholder="Es: 25.50" step="0.01" min="0">
+            </div>
 
-        <button id="btn-aggiungi">Aggiungi spesa</button>
+            <div class="form-group">
+                <label for="category">Categoria</label>
+                <select id="category">
+                    <option value="cibo">🍕 Cibo</option>
+                    <option value="trasporti">🚗 Trasporti</option>
+                    <option value="svago">🎮 Svago</option>
+                    <option value="altro">📦 Altro</option>
+                </select>
+            </div>
 
-    </section>
+            <button id="addExpenseBtn">Aggiungi Spesa</button>
+        </div>
 
+        <div class="summary">
+            <h2>Totale Spese</h2>
+            <div class="total-amount" id="totalAmount">€ 0.00</div>
+        </div>
+
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="tutte">Tutte</button>
+            <button class="filter-btn" data-filter="cibo">Cibo</button>
+            <button class="filter-btn" data-filter="trasporti">Trasporti</button>
+            <button class="filter-btn" data-filter="svago">Svago</button>
+            <button class="filter-btn" data-filter="altro">Altro</button>
+        </div>
+
+        <div class="expenses-list" id="expensesList">
+            <div class="empty-message">Nessuna spesa inserita</div>
+        </div>
+
+        <button class="reset-btn" id="resetBtn">🗑️ Elimina Tutte le Spese</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
